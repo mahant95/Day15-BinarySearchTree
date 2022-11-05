@@ -48,17 +48,37 @@ public class BinarySearchTree {
 		System.out.print(root.data+" ");
 		inOrderRec(root.right);
 	}
-	
+	//method to find the size i.e number of nodes in BST
+	public int size(Node root)
+	{
+		if(root == null)
+			return 0;
+		else
+			return (size(root.left)+1+size(root.right));
+	}
 	public static void main(String[] args) {
 		BinarySearchTree tree = new BinarySearchTree();
 		tree.insert(56);
-		tree.inOrder();
-		System.out.println();
 		tree.insert(30);
+		tree.insert(70);
+		tree.insert(22);
+		tree.insert(40);
+		tree.insert(11);
+		tree.insert(3);
+		tree.insert(16);
+		tree.insert(60);
+		tree.insert(95);
+		tree.insert(65);
+		tree.insert(63);
+		//tree.insert(67);
 		tree.inOrder();
 		System.out.println();
-		tree.insert(70);
-		tree.inOrder();
+		int size = tree.size(tree.root);
+		if(size == 13)
+			System.out.println("All elements are added");
+		else
+			System.out.println("Missing some elements");
+		
 		
 	}
 }
